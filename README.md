@@ -3,7 +3,7 @@
 <div align="center">
   <!--  You can customize the typing text in the "lines=" section of the URL below -->
   <!--  For an ampersand (&), use &amp; (e.g., Analytics+%26+Optimization) -->
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=2E9EF7&center=true&vCenter=true&width=435&lines=Data+Analyst+%7C;Turning+Data+into+Actionable+Insights;Excel;Power+Bi;SQL" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=2E9EF7&center=true&vCenter=true&width=435&lines=Data+Analyst;Turning+Data+into+Actionable+Insights;Excel;Power+Bi;SQL" alt="Typing SVG" />
 </div>
 
 <!-- 🔗 Update these links with your own social media and contact information -->
@@ -24,8 +24,8 @@ When I'm not working with data, I enjoy problem solving and deep thinking. I lov
       
 ## 🔭 What I'm Currently Working On 
 
-- **Project A:** [Turning Registration Data Into Growth Insights using PowerBI, DAX]  
-- **Project B:** [Creating a Dashboard on Global Trends In Mental Disorder ]
+- **Project 1:** Turning Registration Data Into Growth Insights using PowerBI, DAX 
+- **Project B:** Creating a Dashboard on Global Trends In Mental Disorder 
 - **Project c:** []
 ## 🌱 Currently Learning 
 
