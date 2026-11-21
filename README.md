@@ -27,7 +27,7 @@ When I'm not working with data, I enjoy problem solving and deep thinking. I lov
 - **Project 1:** Turning Registration Data Into Growth Insights using PowerBI, DAX. 
 - **Project 2:** Data Visualisation on Global Life Expectancy (2000-2021) using Excel.
 - **Project 3:** Analysing International Students Mental Health Using PostgreSQL.
-- **Project 4:** 
+- **Project 4:**
 
 ## 🌱 Currently Learning 
 
