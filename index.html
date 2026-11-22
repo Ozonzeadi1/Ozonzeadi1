@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adaeze Ozonzeadi | Data Analyst Portfolio</title>
+<meta name="description" content="Data analyst portfolio of Adaeze Somtochukwu Ozonzeadi: Power BI dashboards, SQL analysis and Excel reporting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14182b;
+    --muted: #5b6075;
+    --line: #e3e1da;
+    --paper: #faf8f3;
+    --card: #ffffff;
+    --navy: #1b2a7a;
+    --accent: #e07a2f;
+    --tint: #eef0fa;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: Inter, system-ui, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; font-size: 16.5px; }
+  img { max-width: 100%; display: block; }
+  a { color: var(--navy); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(250,248,243,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+  .logo { font-family: Fraunces, serif; font-weight: 700; font-size: 1.2rem; text-decoration: none; color: var(--ink); }
+  .logo span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 26px; }
+  nav ul a { text-decoration: none; color: var(--muted); font-weight: 500; font-size: .95rem; }
+  nav ul a:hover { color: var(--navy); }
+
+  /* hero */
+  .hero { padding: 88px 0 72px; }
+  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+  h1 { font-family: Fraunces, serif; font-weight: 700; font-size: clamp(2.3rem, 5.5vw, 3.9rem); line-height: 1.08; letter-spacing: -.02em; max-width: 15ch; }
+  h1 em { font-style: normal; color: var(--navy); }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: 58ch; margin-top: 22px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .btn { display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; font-size: .95rem; }
+  .btn.primary { background: var(--navy); color: #fff; }
+  .btn.ghost { border: 1.5px solid var(--ink); color: var(--ink); }
+  .btn:hover { opacity: .88; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 64px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stats div { padding: 22px 0; }
+  .stats div + div { border-left: 1px solid var(--line); padding-left: 24px; }
+  .stats b { display: block; font-family: Fraunces, serif; font-size: 2rem; color: var(--navy); line-height: 1.1; }
+  .stats span { color: var(--muted); font-size: .9rem; }
+
+  section { padding: 76px 0; }
+  .section-head { margin-bottom: 40px; }
+  h2 { font-family: Fraunces, serif; font-weight: 700; font-size: clamp(1.8rem, 3.5vw, 2.5rem); letter-spacing: -.01em; }
+  .section-head p { color: var(--muted); margin-top: 8px; max-width: 60ch; }
+
+  /* about */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; }
+  .about-grid p + p { margin-top: 14px; }
+  .skills h3 { font-size: .8rem; font-family: "JetBrains Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .skills h3:not(:first-child) { margin-top: 22px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { background: var(--tint); color: var(--navy); padding: 6px 13px; border-radius: 999px; font-size: .88rem; font-weight: 500; }
+
+  /* projects */
+  #projects { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .project { padding: 56px 0; border-top: 1px solid var(--line); }
+  .project:first-of-type { border-top: 0; padding-top: 0; }
+  .p-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .p-num { font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: .85rem; }
+  .tag { font-size: .78rem; border: 1px solid var(--line); border-radius: 6px; padding: 2px 9px; color: var(--muted); }
+  .project h3 { font-family: Fraunces, serif; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.2; max-width: 30ch; }
+  .project .summary { color: var(--muted); font-size: 1.08rem; margin-top: 10px; max-width: 70ch; }
+  .shot { margin-top: 28px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #fff; }
+  .shot a { display: block; }
+  .shot img { width: 100%; }
+  .shot figcaption { font-size: .82rem; color: var(--muted); padding: 10px 16px; border-top: 1px solid var(--line); background: var(--paper); }
+  .shots-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; align-items: start; }
+  .shots-2 .shot { margin-top: 0; }
+  .case { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 32px; }
+  .case h4 { font-size: .78rem; font-family: "JetBrains Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .case p, .case li { font-size: .96rem; }
+  .case ul { padding-left: 18px; }
+  .case li + li { margin-top: 6px; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 28px; }
+  .kpi { background: var(--tint); border-radius: 10px; padding: 16px; }
+  .kpi b { display: block; font-family: Fraunces, serif; font-size: 1.6rem; color: var(--navy); line-height: 1.1; }
+  .kpi span { font-size: .84rem; color: var(--muted); }
+
+  pre { font-family: "JetBrains Mono", monospace; font-size: .85rem; background: #14182b; color: #e8e9f3; padding: 20px 22px; border-radius: var(--radius); overflow-x: auto; line-height: 1.55; }
+  pre .k { color: #ff9e64; } pre .s { color: #9ece6a; } pre .c { color: #7a7f9a; }
+  .data-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  .data-table th, .data-table td { padding: 9px 12px; text-align: right; border-bottom: 1px solid var(--line); }
+  .data-table th { font-weight: 600; color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .04em; }
+  .data-table th:first-child, .data-table td:first-child { text-align: left; }
+  .data-table tr.focus td { background: #fdf3ea; }
+  .table-wrap { border: 1px solid var(--line); border-radius: var(--radius); overflow-x: auto; }
+  .sql-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; align-items: start; }
+  .sql-grid > *, .case > *, .shots-2 > * { min-width: 0; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .links a { font-size: .9rem; font-weight: 600; text-decoration: none; border: 1.5px solid var(--navy); border-radius: 999px; padding: 8px 16px; }
+  .links a:hover { background: var(--navy); color: #fff; }
+  .note { font-size: .82rem; color: var(--muted); margin-top: 8px; }
+
+  /* contact */
+  #contact .box { background: var(--navy); color: #fff; border-radius: 22px; padding: 56px 48px; }
+  #contact h2 { color: #fff; }
+  #contact p { color: #c9cde8; margin-top: 10px; max-width: 55ch; }
+  #contact .btn.primary { background: var(--accent); }
+  #contact .btn.ghost { border-color: #fff; color: #fff; }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: .88rem; }
+
+  @media (max-width: 820px) {
+    nav ul { gap: 16px; }
+    nav ul li.hide-sm { display: none; }
+    .about-grid, .case, .shots-2, .sql-grid { grid-template-columns: 1fr; }
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    .stats b { font-size: 1.5rem; }
+    .stats div + div { padding-left: 14px; }
+    #contact .box { padding: 40px 26px; }
+    section { padding: 60px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo">Adaeze<span>.</span></a>
+    <ul>
+      <li class="hide-sm"><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Data Analyst · Power BI · SQL · Excel</p>
+    <h1>I turn raw data into <em>decisions people can act on.</em></h1>
+    <p class="lede">I'm Adaeze Somtochukwu Ozonzeadi, a data analyst based in Nigeria. I clean messy datasets, ask sharp questions of them, and build dashboards and reports that point to a clear next step, from where to spend ad budget to how a hotel can cut cancellations.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View my projects</a>
+      <a class="btn ghost" href="https://github.com/Ozonzeadi1" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="stats">
+      <div><b>4</b><span>End-to-end projects</span></div>
+      <div><b>3</b><span>Tools: Power BI, SQL, Excel</span></div>
+      <div><b>4</b><span>Domains: growth, health, education, hospitality</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="section-head"><h2>About me</h2></div>
+      <p>I enjoy the whole analysis cycle: understanding the business question, cleaning and shaping the data, exploring it, and presenting the findings so that a non-technical audience can act on them.</p>
+      <p>My projects cover marketing and growth analytics, hospitality, global public health and student mental health. Across all of them I focus on the same thing: a short list of clear insights backed by visuals people can read at a glance.</p>
+    </div>
+    <div class="skills">
+      <h3>Tools</h3>
+      <div class="chips"><span class="chip">Power BI</span><span class="chip">PostgreSQL / SQL</span><span class="chip">Microsoft Excel</span><span class="chip">PowerPoint</span><span class="chip">DataCamp DataLab</span></div>
+      <h3>Skills</h3>
+      <div class="chips"><span class="chip">Data cleaning</span><span class="chip">Exploratory analysis</span><span class="chip">Dashboard design</span><span class="chip">Aggregation &amp; grouping</span><span class="chip">Trend analysis</span><span class="chip">Data storytelling</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <p>Each project starts with a real question and ends with recommendations. Click any image to see it full size.</p>
+    </div>
+
+    <!-- PROJECT 1 -->
+    <article class="project" id="cohort-growth">
+      <div class="p-meta"><span class="p-num">01</span><span class="tag">Power BI</span><span class="tag">Marketing analytics</span><span class="tag">Dashboard</span></div>
+      <h3>Zion Tech Hub: Cohort Growth &amp; Acquisition Intelligence</h3>
+      <p class="summary">An end-to-end analysis of Cohort 9 and 10 registration data to guide ad spend for Cohort 11 and decide which regions to expand into.</p>
+
+      <div class="kpis">
+        <div class="kpi"><b>1,218</b><span>Total registrations</span></div>
+        <div class="kpi"><b>45</b><span>Countries reached</span></div>
+        <div class="kpi"><b>7</b><span>Courses offered</span></div>
+        <div class="kpi"><b>7</b><span>Acquisition channels</span></div>
+      </div>
+
+      <figure class="shot">
+        <a href="projects/01-zion-tech-hub-cohort-growth/images/dashboard.jpg" target="_blank" rel="noopener"><img src="projects/01-zion-tech-hub-cohort-growth/images/dashboard.jpg" alt="Power BI dashboard showing registrations by acquisition channel, course, country, cohort and month"></a>
+        <figcaption>Interactive Power BI dashboard with slicers for cohort, country, programme and gender</figcaption>
+      </figure>
+
+      <div class="case">
+        <div>
+          <h4>The problem</h4>
+          <p>Zion Tech Hub needed to know which marketing channels and regions actually drive sign-ups, so the Cohort 11 ad budget goes where it works.</p>
+        </div>
+        <div>
+          <h4>What I did</h4>
+          <ul>
+            <li>Cleaned and modelled registration data from two cohorts</li>
+            <li>Built KPI cards, channel, course and country breakdowns</li>
+            <li>Added a monthly trend and a channel × course matrix</li>
+            <li>Added slicers so stakeholders can filter it themselves</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Key findings</h4>
+          <ul>
+            <li><b>X (Twitter) drove 795 of 1,218 sign-ups (65%)</b>, far ahead of WhatsApp (205) and LinkedIn (167)</li>
+            <li><b>Nigeria accounts for 715 registrations</b>; Ghana, South Africa and Kenya (100+ each) are the clearest expansion markets</li>
+            <li><b>Data Science &amp; AI is the top course</b> with 465 registrations</li>
+            <li>Sign-ups peaked in November 2025 (426) and January 2026 (435), then fell sharply</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="links"><a href="https://github.com/Ozonzeadi1/Ozonzeadi1.github.io/tree/main/projects/01-zion-tech-hub-cohort-growth" target="_blank" rel="noopener">Full documentation →</a></div>
+    </article>
+
+    <!-- PROJECT 2 -->
+    <article class="project" id="life-expectancy">
+      <div class="p-meta"><span class="p-num">02</span><span class="tag">Excel</span><span class="tag">Public health</span><span class="tag">Report</span></div>
+      <h3>Global Life Expectancy at Birth (2000–2021)</h3>
+      <p class="summary">A 21-year look at how long people live across countries and genders, and what that says about global health standards.</p>
+
+      <figure class="shot">
+        <a href="projects/02-global-life-expectancy/images/top-bottom-10-countries.jpg" target="_blank" rel="noopener"><img src="projects/02-global-life-expectancy/images/top-bottom-10-countries.jpg" alt="Bar charts of the top 10 and bottom 10 countries by life expectancy at birth"></a>
+        <figcaption>Top 10 vs bottom 10 countries by life expectancy at birth</figcaption>
+      </figure>
+      <div class="shots-2">
+        <figure class="shot">
+          <a href="projects/02-global-life-expectancy/images/gender-comparison.jpg" target="_blank" rel="noopener"><img src="projects/02-global-life-expectancy/images/gender-comparison.jpg" alt="Pie chart of life expectancy share by gender and bar chart comparing males and females in 2000 and 2021"></a>
+          <figcaption>Gender comparison, 2000 vs 2021</figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="projects/02-global-life-expectancy/images/global-trend.jpg" target="_blank" rel="noopener"><img src="projects/02-global-life-expectancy/images/global-trend.jpg" alt="Line chart of global life expectancy rising from 2000 to a peak in 2019, then dropping"></a>
+          <figcaption>Global trend over time</figcaption>
+        </figure>
+      </div>
+
+      <div class="case">
+        <div>
+          <h4>Questions asked</h4>
+          <ul>
+            <li>Which 10 countries have the highest life expectancy, and which 10 the lowest?</li>
+            <li>Which gender lives longer?</li>
+            <li>How did each gender change between 2000 and 2021, and what is the overall trend?</li>
+          </ul>
+        </div>
+        <div>
+          <h4>What I did</h4>
+          <ul>
+            <li>Removed redundant columns and cleaned the dataset</li>
+            <li>Summarised by country, gender and year in Excel</li>
+            <li>Built ranking, gender and trend charts</li>
+            <li>Presented the findings as a short report deck</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Key findings</h4>
+          <ul>
+            <li><b>Japan leads at 83.16 years</b>, reflecting strong healthcare, diet and environment</li>
+            <li><b>Sub-Saharan Africa has the lowest figures</b>; Lesotho is at 48.09, Eswatini 48.35 and the Central African Republic 48.89</li>
+            <li><b>Women outlive men</b>: females rose from 69.4 to 73.8 years, males from 64.6 to 68.9</li>
+            <li>Global longevity peaked in 2019, and the drop through 2021 likely reflects COVID-19</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="links"><a href="https://github.com/Ozonzeadi1/Ozonzeadi1.github.io/tree/main/projects/02-global-life-expectancy" target="_blank" rel="noopener">Full documentation →</a><a href="projects/02-global-life-expectancy/report-walkthrough.mp4">Watch the report walkthrough</a></div>
+    </article>
+
+    <!-- PROJECT 3 -->
+    <article class="project" id="student-wellbeing">
+      <div class="p-meta"><span class="p-num">03</span><span class="tag">PostgreSQL</span><span class="tag">Mental health</span><span class="tag">DataCamp DataLab</span></div>
+      <h3>Analysing International Students' Mental Health</h3>
+      <p class="summary">Does studying abroad affect mental health, and does the length of stay matter? I used SQL to test this on survey data from a Japanese international university.</p>
+
+      <div class="sql-grid">
+        <pre><span class="c">-- Average scores for international students,
+-- grouped by length of stay</span>
+<span class="k">SELECT</span> stay,
+       <span class="k">COUNT</span>(*) <span class="k">AS</span> count_int,
+       <span class="k">ROUND</span>(<span class="k">AVG</span>(todep), 2) <span class="k">AS</span> average_phq,
+       <span class="k">ROUND</span>(<span class="k">AVG</span>(tosc), 2)  <span class="k">AS</span> average_scs,
+       <span class="k">ROUND</span>(<span class="k">AVG</span>(toas), 2)  <span class="k">AS</span> average_as
+<span class="k">FROM</span> students
+<span class="k">WHERE</span> inter_dom = <span class="s">'Inter'</span>
+<span class="k">GROUP BY</span> stay
+<span class="k">ORDER BY</span> stay <span class="k">DESC</span>;</pre>
+        <div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Stay (yrs)</th><th>Students</th><th>Depression (PHQ-9)</th><th>Social conn. (SCS)</th><th>Accult. stress (ASISS)</th></tr></thead>
+              <tbody>
+                <tr><td>10</td><td>1</td><td>13.00</td><td>32.00</td><td>50.00</td></tr>
+                <tr><td>8</td><td>1</td><td>10.00</td><td>44.00</td><td>65.00</td></tr>
+                <tr><td>7</td><td>1</td><td>4.00</td><td>48.00</td><td>45.00</td></tr>
+                <tr><td>6</td><td>3</td><td>6.00</td><td>38.00</td><td>58.67</td></tr>
+                <tr><td>5</td><td>1</td><td>0.00</td><td>34.00</td><td>91.00</td></tr>
+                <tr class="focus"><td>4</td><td>14</td><td>8.57</td><td>33.93</td><td>87.71</td></tr>
+                <tr class="focus"><td>3</td><td>46</td><td>9.09</td><td>37.13</td><td>78.00</td></tr>
+                <tr class="focus"><td>2</td><td>39</td><td>8.28</td><td>37.08</td><td>77.67</td></tr>
+                <tr class="focus"><td>1</td><td>95</td><td>7.48</td><td>38.11</td><td>72.80</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">Highlighted rows hold 194 of the 201 international students; groups of 5+ years have 1–3 students each.</p>
+        </div>
+      </div>
+
+      <div class="case">
+        <div>
+          <h4>The problem</h4>
+          <p>A 2018 study found international students face higher mental-health risk, and that social connectedness and acculturative stress predict depression. I checked whether the data supports this and whether length of stay plays a part.</p>
+        </div>
+        <div>
+          <h4>What I did</h4>
+          <ul>
+            <li>Explored the 286-row <code>students</code> table in PostgreSQL</li>
+            <li>Filtered to international students</li>
+            <li>Grouped by length of stay and averaged depression, social connectedness and acculturative stress scores</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Key findings</h4>
+          <ul>
+            <li>Over the first four years, <b>acculturative stress rises steadily</b>, from 72.8 to 87.7</li>
+            <li>Depression scores edge up from 7.48 to around 9, while social connectedness dips slightly</li>
+            <li>Groups that stayed 5+ years are too small (1–3 students) for reliable conclusions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="links"><a href="https://github.com/Ozonzeadi1/Ozonzeadi1.github.io/tree/main/projects/03-student-mental-health" target="_blank" rel="noopener">Full documentation →</a><a href="projects/03-student-mental-health/query.sql">SQL query</a><a href="projects/03-student-mental-health/results.csv">Results (CSV)</a><a href="projects/03-student-mental-health/notebook-export.pdf">Notebook (PDF)</a></div>
+    </article>
+
+    <!-- PROJECT 4 -->
+    <article class="project" id="hotel-booking">
+      <div class="p-meta"><span class="p-num">04</span><span class="tag">Power BI</span><span class="tag">Hospitality</span><span class="tag">Dashboard</span></div>
+      <h3>Hotel Booking Analysis</h3>
+      <p class="summary">What drives bookings, cancellations and guest requests across a City Hotel and a Resort Hotel, and what the business can do about it.</p>
+
+      <div class="kpis">
+        <div class="kpi"><b>3.43</b><span>Avg nights per stay</span></div>
+        <div class="kpi"><b>101.83</b><span>Avg daily rate (ADR)</span></div>
+        <div class="kpi"><b>409K</b><span>Total nights booked</span></div>
+        <div class="kpi"><b>12M</b><span>Total lead time (days)</span></div>
+      </div>
+
+      <figure class="shot">
+        <a href="projects/04-hotel-booking-analysis/images/dashboard.jpg" target="_blank" rel="noopener"><img src="projects/04-hotel-booking-analysis/images/dashboard.jpg" alt="Power BI hotel booking dashboard with KPIs, top countries, cancellations by month, lead time by status, ADR by country and special requests by customer type"></a>
+        <figcaption>Interactive Power BI dashboard with slicers for hotel type and lead time</figcaption>
+      </figure>
+
+      <div class="case">
+        <div>
+          <h4>The problem</h4>
+          <p>The hotels needed to understand where guests come from, when and why bookings get cancelled, and which guests need the most attention, so they can protect revenue and plan staffing.</p>
+        </div>
+        <div>
+          <h4>What I did</h4>
+          <ul>
+            <li>Cleaned the booking data and created a Total Nights column</li>
+            <li>Built KPI measures for stay length, ADR and lead time</li>
+            <li>Charted countries, cancellations, lead time, children and special requests</li>
+            <li>Added hotel and lead-time slicers</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Key findings</h4>
+          <ul>
+            <li><b>Portugal is the core market</b> with ~49K guests and the highest total ADR (4.5M)</li>
+            <li><b>August has the most cancellations</b>, which follow the summer peak</li>
+            <li><b>Cancelled bookings carry more lead time (6.3M days) than completed stays (6.0M)</b>, so early bookings are a cancellation risk</li>
+            <li>Transient guests make most special requests (57K), and the City Hotel hosts 57% of children</li>
+          </ul>
+        </div>
+      </div>
+      <div class="links"><a href="https://github.com/Ozonzeadi1/Ozonzeadi1.github.io/tree/main/projects/04-hotel-booking-analysis" target="_blank" rel="noopener">Full documentation →</a></div>
+    </article>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="box">
+      <h2>Let's work together</h2>
+      <p>I'm open to data analyst roles, internships and freelance projects. If you have data and a question, I'd love to help answer it.</p>
+      <div class="cta">
+        <!-- Add your email: replace YOUR-EMAIL below, then remove this comment -->
+        <!-- <a class="btn primary" href="mailto:YOUR-EMAIL">Email me</a> -->
+        <!-- Add your LinkedIn: replace YOUR-PROFILE below, then remove this comment -->
+        <!-- <a class="btn ghost" href="https://www.linkedin.com/in/YOUR-PROFILE" target="_blank" rel="noopener">LinkedIn</a> -->
+        <a class="btn primary" href="https://github.com/Ozonzeadi1" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Adaeze Somtochukwu Ozonzeadi</div>
+</footer>
+
+</body>
+</html>

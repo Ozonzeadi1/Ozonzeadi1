@@ -1,53 +1,57 @@
-## Hi there, I'm Ozonzeadi 👋
+# Hotel Booking Analysis
 
-<div align="center">
-  <!--  You can customize the typing text in the "lines=" section of the URL below -->
-  <!--  For an ampersand (&), use &amp; (e.g., Analytics+%26+Optimization) -->
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=2E9EF7&center=true&vCenter=true&width=435&lines=Data+Analyst;Turning+Data+into+Actionable+Insights;Excel;Power+Bi;SQL" alt="Typing SVG" />
-</div>
+**Tool:** Power BI  **Domain:** Hospitality and revenue analytics  **Type:** Interactive dashboard
 
-<!-- 🔗 Update these links with your own social media and contact information -->
-<p align="center">
-  <a href="www.linkedin.com/in/adaeze-ozonzeadi-89a607250"><img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin"></a>
-  
-  <a href="adaozonzeadi@outlook.com"><img src="https://img.shields.io/badge/Email-Contact-green?style=for-the-badge&logo=gmail"></a>
-</p>
+![Power BI dashboard](images/dashboard.jpg)
 
-## 🚀 About Me 
-I'm a data analyst with a strong interest in using data to understand problems, uncover patterns and support informed decision making.
+## Business question
 
-I work with Excel, PowerBI, SQL to clean, transform, analyse and visualize data, with a focus on identifying patterns, exploring trends and presenting findings in ways that support better decisions.
-When I'm not working with data, I enjoy problem solving and deep thinking. I love the "aha!" moment when data reveals something new and useful.
+A business running a **City Hotel** and a **Resort Hotel** wants to understand its bookings better:
 
-<!-- 🌐 Replace "your-username" with your actual GitHub username -->
-### [🏆 Check Out My Full Portfolio Website](https://Ozonzeadi1.github.io/)
-      
-## 🔭 What I'm Currently Working On 
+1. Where do most guests come from, and which markets bring in the most revenue?
+2. When do cancellations happen, and how does booking lead time relate to them?
+3. How do family bookings (guests with children) split between the two hotels?
+4. Which customer types make the most special requests?
 
-- **Project 1:** Turning Registration Data Into Growth Insights using PowerBI, DAX. 
-- **Project 2:** Data Visualisation on Global Life Expectancy (2000-2021) using Excel.
-- **Project 3:** Analysing International Students Mental Health Using PostgreSQL.
-- **Project 4:** Hotel Booking Analysis and Dashboard
+## Data
 
-## 🌱 Currently Learning 
+Booking-level hotel reservation data. Fields used include hotel type, country, lead time, stay length (week and weekend nights), ADR (average daily rate), number of children, reservation status, arrival month, customer type and total special requests.
 
-- AI in Data Analysis
-- Digital Health
+## Approach
 
-## 🛠️ Technical Skillset
+1. **Cleaning and preparation:** created a *Total Nights* column (weekend nights + week nights) and checked country codes and missing values.
+2. **Measures:** average total nights, average ADR, total nights and total lead time.
+3. **Dashboard design:**
+   - KPI cards: average total nights, average ADR, total nights, total lead time
+   - Bar chart: top 5 countries by guests
+   - Pie chart: children by hotel
+   - Line chart: cancellations by month
+   - Bar chart: lead time by reservation status
+   - Column chart: ADR by country
+   - Column chart: special requests by customer type
+   - Slicers: hotel type and lead-time range (0–737 days)
 
-<!-- This section uses Shields.io badges. You can customize them or create your own!-->
+## Key metrics
 
-#### Data Analysis & Visualization
-<p>
-  <!-- 💡 Go to Shields.io to create your own badges -->
-  <img src="https://img.shields.io/badge/SQL-Beginner-4479A1?style=flat&logo=postgresql&logoColor=white" alt="SQL Skill Badge">
-  <img src="https://img.shields.io/badge/Power%20BI-Intermediate-F2C811?style=flat&logo=powerbi&logoColor=black" alt="Power BI Skill Badge">
-  <img src="https://img.shields.io/badge/Excel-Intermediate-217346?style=flat&logo=microsoft-excel&logoColor=white" alt="Excel Skill Badge">
-  
+| Metric | Value |
+|---|---|
+| Average length of stay | 3.43 nights |
+| Average daily rate (ADR) | 101.83 |
+| Total nights booked | 409K |
+| Total lead time | 12M days |
 
+## Findings
 
- 
+- **Portugal (PRT) is by far the biggest source market,** with about 49K guests. Great Britain (12K), France (10K) and Spain (9K) follow. Portugal also contributes the most total ADR (4.5M), nearly four times Great Britain (1.2M).
+- **August has the most cancellations,** followed by July, May and June. January has the fewest. Cancellations follow the summer travel peak.
+- **Cancelled bookings carry more total lead time (6.3M days) than completed stays (6.0M).** This suggests that bookings made far in advance are more likely to be cancelled.
+- **The City Hotel hosts more children** (7.64K, 57%) than the Resort Hotel (5.71K, 43%).
+- **Transient customers make most special requests** (57K), far more than transient-party (8K), contract (3K) and group (near 0) customers.
 
+## Recommendations
 
-  
+1. **Reduce cancellations on long-lead bookings** with deposits, non-refundable rate options or reminder emails as the stay gets closer.
+2. **Tighten the cancellation policy for June–August,** when cancellations peak, and consider controlled overbooking.
+3. **Keep investing in the Portuguese market,** and grow the UK, French and Spanish markets with targeted campaigns.
+4. **Market family packages,** especially at the City Hotel.
+5. **Prepare staff for transient guests' requests,** for example with pre-arrival request forms.
